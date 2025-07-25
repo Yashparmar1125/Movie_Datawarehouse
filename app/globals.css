@@ -1,0 +1,347 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 94%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 262 83% 58%;
+    --chart-1: 262 83% 58%;
+    --chart-2: 346 87% 43%;
+    --chart-3: 24 95% 53%;
+    --chart-4: 142 76% 36%;
+    --chart-5: 199 89% 48%;
+    --radius: 1rem;
+
+    /* Cinema Theme Variables */
+    --cinema-primary: 262 83% 58%;
+    --cinema-secondary: 346 87% 43%;
+    --cinema-accent: 45 100% 70%;
+    --cinema-success: 142 76% 36%;
+    --cinema-warning: 24 95% 53%;
+    --cinema-info: 199 89% 48%;
+
+    /* Premium Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(262 83% 58%) 0%, hsl(346 87% 43%) 50%, hsl(24 95% 53%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(199 89% 48%) 0%, hsl(142 76% 36%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 40% 98%) 50%, hsl(220 40% 96%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsla(0, 0%, 100%, 0.25) 0%, hsla(0, 0%, 100%, 0.1) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 2px 4px hsla(240, 10%, 3.9%, 0.05);
+    --shadow-md: 0 4px 12px hsla(240, 10%, 3.9%, 0.1);
+    --shadow-lg: 0 8px 32px hsla(240, 10%, 3.9%, 0.15);
+    --shadow-xl: 0 16px 64px hsla(240, 10%, 3.9%, 0.2);
+    --shadow-glow: 0 0 32px hsla(262, 83%, 58%, 0.3);
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 5% 6%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 262 83% 58%;
+    --chart-1: 262 83% 58%;
+    --chart-2: 346 87% 43%;
+    --chart-3: 24 95% 53%;
+    --chart-4: 142 76% 36%;
+    --chart-5: 199 89% 48%;
+
+    /* Dark mode gradients */
+    --gradient-card: linear-gradient(135deg, hsl(240 5% 6%) 0%, hsl(240 3.7% 15.9%) 50%, hsl(240 3.7% 12%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsla(240, 5%, 6%, 0.8) 0%, hsla(240, 3.7%, 15.9%, 0.6) 100%);
+
+    /* Dark shadows */
+    --shadow-sm: 0 2px 4px hsla(0, 0%, 0%, 0.3);
+    --shadow-md: 0 4px 12px hsla(0, 0%, 0%, 0.4);
+    --shadow-lg: 0 8px 32px hsla(0, 0%, 0%, 0.5);
+    --shadow-xl: 0 16px 64px hsla(0, 0%, 0%, 0.6);
+    --shadow-glow: 0 0 32px hsla(262, 83%, 58%, 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  /* Background Patterns */
+  .bg-grid-pattern {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .bg-dots-pattern {
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  /* Premium Gradients */
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .gradient-glass {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsla(0, 0%, 100%, 0.2);
+  }
+
+  /* Enhanced Glass Effect */
+  .glass-effect {
+    backdrop-filter: blur(20px) saturate(180%);
+    background: var(--gradient-glass);
+    border: 1px solid hsla(var(--border), 0.3);
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Premium Cards */
+  .premium-card {
+    @apply relative overflow-hidden rounded-2xl;
+    background: var(--gradient-card);
+    border: 1px solid hsla(var(--border), 0.5);
+    box-shadow: var(--shadow-lg);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .premium-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--gradient-primary);
+    opacity: 0.8;
+  }
+
+  .premium-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: var(--shadow-xl), var(--shadow-glow);
+  }
+
+  /* KPI Cards */
+  .kpi-card {
+    @apply premium-card;
+    position: relative;
+  }
+
+  .kpi-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-primary);
+    border-radius: 1rem 1rem 0 0;
+  }
+
+  /* Chart Cards */
+  .chart-card {
+    @apply premium-card;
+    background: var(--gradient-card);
+    border: 1px solid hsla(var(--border), 0.3);
+  }
+
+  .chart-card:hover {
+    box-shadow: var(--shadow-xl);
+  }
+
+  /* Table Cards */
+  .table-card {
+    @apply premium-card;
+  }
+
+  /* Enhanced Buttons */
+  .btn-premium {
+    @apply relative overflow-hidden rounded-xl px-6 py-3 font-semibold transition-all duration-300;
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    box-shadow: var(--shadow-md);
+  }
+
+  .btn-premium:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .btn-premium::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+  }
+
+  .btn-premium:hover::before {
+    left: 100%;
+  }
+
+  /* Enhanced Badges */
+  .badge-premium {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-medium;
+    background: var(--gradient-glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid hsla(var(--border), 0.3);
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Animated Elements */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+
+  /* Loading Shimmer */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      hsla(var(--muted), 0.2) 25%,
+      hsla(var(--muted), 0.4) 50%,
+      hsla(var(--muted), 0.2) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  /* Scrollbar Styling */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: hsla(var(--muted), 0.3);
+    border-radius: 3px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--gradient-primary);
+    border-radius: 3px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--gradient-secondary);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 20px hsla(262, 83%, 58%, 0.3);
+  }
+  to {
+    box-shadow: 0 0 30px hsla(262, 83%, 58%, 0.6);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Responsive Typography */
+@media (max-width: 640px) {
+  .text-responsive-xl {
+    @apply text-xl;
+  }
+  .text-responsive-2xl {
+    @apply text-xl;
+  }
+  .text-responsive-3xl {
+    @apply text-2xl;
+  }
+}
+
+@media (min-width: 641px) {
+  .text-responsive-xl {
+    @apply text-2xl;
+  }
+  .text-responsive-2xl {
+    @apply text-3xl;
+  }
+  .text-responsive-3xl {
+    @apply text-4xl;
+  }
+}

@@ -1,0 +1,66 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Customer {
+  c_id        BigInt   @id
+  name        String?
+  email       String?  @unique
+  phone       String?
+  location    String?
+  amount_paid BigInt?
+  Fact_Table  Fact_Table[]
+}
+
+model Movies {
+  m_id         BigInt   @id
+  title        String?
+  genre        String?
+  release_date DateTime?
+  duration     Float?
+  rating       BigInt?
+  language     String?
+  Fact_Table   Fact_Table[]
+}
+
+model Theater {
+  t_id        BigInt   @id
+  t_name      String?
+  location    String?
+  totalSeats  BigInt?
+  showTime    Float?
+  showDate    DateTime?
+  Fact_Table  Fact_Table[]
+}
+
+model Date {
+  d_id      BigInt   @id
+  date      DateTime?
+  day       String?
+  month     String?
+  quater    BigInt?
+  year      BigInt?
+  isWeekend Boolean?
+  Fact_Table Fact_Table[]
+}
+
+model Fact_Table {
+  id          BigInt   @id
+  c_id        BigInt
+  m_id        BigInt
+  t_id        BigInt
+  d_id        BigInt
+  ticketSold  BigInt?
+  totalAmount BigInt?
+  discount    Int?
+
+  Customer Customer @relation(fields: [c_id], references: [c_id])
+  Movies   Movies   @relation(fields: [m_id], references: [m_id])
+  Theater  Theater  @relation(fields: [t_id], references: [t_id])
+  Date     Date     @relation(fields: [d_id], references: [d_id])
+} 
